@@ -22,7 +22,7 @@ stages:
     steps:
     - task: Docker@2
       inputs:
-        containerRegistry: 'ishamid Docker Hub'
+        containerRegistry: 'ishamid0 Docker Hub'
         repository: 'ishamid/weatherapi'
         command: 'buildAndPush'
         Dockerfile: '**/Dockerfile'        
