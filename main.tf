@@ -22,6 +22,10 @@ terraform {
   }
 }
 
+variable "imagebuild" {
+  type = string
+  description = "Latest Image Build "
+}
 
 resource "azurerm_resource_group" "tf_test" {
     name = "rgish12012021"
@@ -30,7 +34,7 @@ resource "azurerm_resource_group" "tf_test" {
 }
 
 
-resource "azurerm_container_group" "tfcg" {
+resource "azurerm_container_group" "tfcg_test" {
     name                 = "weatherapi"
     location             = azurerm_resource_group.tf_test.location
     resource_group_name  = azurerm_resource_group.tf_test.name
@@ -41,7 +45,7 @@ resource "azurerm_container_group" "tfcg" {
 
     container {
         name            = "weatherapi"
-        image           = "ishamid/weatherapi"
+        image           = "ishamid/weatherapi:${var.imagebuild}"
             cpu             = "1"
             memory          = "1"
 
