@@ -41,10 +41,9 @@ stages:
     steps:
     - script: 
         set -e
-
         terraform init  -input=false
         terraform apply -input=false -auto-approve
-      name: 'RunTerraform'
+      name: RunTerraform
       displayName: 'Run Terraform'  
       env:
         ARM_CLIENT_ID: $(ARM_CLIENT_ID)
