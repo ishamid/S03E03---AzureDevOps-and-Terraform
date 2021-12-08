@@ -13,6 +13,16 @@ provider "azurerm" {
   
 }
 
+terraform {
+  backend "azurerm" {
+    resource_group_name  = "tf_rg_blobstorage"
+    storage_account_name = "tfstorageaccount120821"
+    container_name       = "tfstate"
+    key                  = "terraform.tfstate"
+  }
+}
+
+
 resource "azurerm_resource_group" "tf_test" {
     name = "rgish12012021"
     location = "eastus2"
